@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Trabalho Final Front-end</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body ng-app="appFootball">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Trabalho Final</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="#!/times">Times pelo Mundo</a></li>
+                    <li class=""><a href="#!/MeusTimes">Meus Times</a></li>
+                    <!--<li><a href="#/jogadores">Jogadores</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" >
+        <div style="margin-top:60px" ng-view></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>-->
+    <!--<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>-->
+    <script src="../Scripts/aplicacao/spa.js"></script>
+
+</body>
+</html>

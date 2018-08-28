@@ -1,0 +1,89 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        Novo Time
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Dados do Time</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" ng-model="NomeDoTime" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Site</label>
+                    <input type="url" class="form-control" ng-model="Site" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Jogadores</h3>
+            </div>
+        </div>
+        <div class="row">
+            <form name="frmJogador">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" ng-model="jogador.nome" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Data Nascimento</label>
+                        <input type="text" class="form-control" min="0" max="120" maxlength="3" ng-model="jogador.dataNascimento" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Posição</label>
+                        <input type="text" class="form-control" ng-model="jogador.posicao" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>&nbsp;  &nbsp;</label>
+                        <button type="button" class="btn btn-info form-control" ng-click="incluirJogador(jogador)"><i class="far fa-save"></i> Incluir</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Posição</th>
+                            <th>Data Nascimento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="t in jogadores">
+                            <td>{{t.nome}}</td>
+                            <td>{{t.posicao}}</td>
+                            <td>{{t.dataNascimento}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default">Cancelar</button>
+                    <button type="button" class="btn btn-success" ng-click="salvarTime()"><i class="far fa-save"></i> Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

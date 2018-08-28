@@ -1,0 +1,64 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="col-md-2">
+            <img src="{{logoTime}}" class="img-responsive" />
+            <h1>{{time.name}}</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Sigla:</label>
+                            <input class="form-control input-sm" value="{{time.tla}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Ano Fundação:</label>
+                            <input class="form-control input-sm" value="{{time.founded}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Cores do Clube:</label>
+                            <input class="form-control input-sm" value="{{time.clubColors}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Último Atualização</label>
+                            <input class="form-control input-sm" value="{{time.lastUpdated | date: 'dd/MM/yyyy'}}" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th colspan="3">
+                                    <h3>Jogadores</h3>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Posição</th>
+                                <th>Data Nascimento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="t in time.squad">
+                                <td>{{t.name}}</td>
+                                <td>{{t.position ? t.position : t.role}}</td>
+                                <td>{{t.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
