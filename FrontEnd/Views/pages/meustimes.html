@@ -1,0 +1,40 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        Meus Times
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Times</h2>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-primary pull-right" ng-href="#!/cadastro/"><i class="fas fa-futbol"></i> Cadastrar Novo Time</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Site</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="t in times">
+                            <td>{{t.NomeDoTime}}</td>
+                            <td><a href="{{t.Site}}" target="_blank">{{t.website}}</a></td>
+                            <td>
+                                <a class="btn btn-info" ng-href="#!/jogadores/{{t.id}}"><i class="fas fa-users"></i> Jogadores</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+    </div>
+</div>

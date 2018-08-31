@@ -29,6 +29,10 @@ app.config(function ($routeProvider) {
             templateUrl: "pages/times.html",
             controller: "TimesController"
         })
+        .when('/MeusTimes', {
+            templateUrl: "pages/meustimes.html",
+            controller: "MeusTimesController"
+        })
         .when('/jogadores/:id', {
             templateUrl: "pages/jogadores.html",
             controller: "JogadoresController"
@@ -84,6 +88,16 @@ app.controller("LoginController", function ($scope, $http, $location, $routePara
     }
 });
 
+app.controller("MeusTimesController", function ($scope, $http, $routeParams) {
+    var strTimes = window.localStorage.getItem("times")
+
+    if (strTimes == null) {
+        $scope.times = []
+    } else {
+        $scope.times = JSON.parse(strTimes);
+    }
+});
+
 app.controller("TimesController", function ($scope, $http, $routeParams) {
     $http.get('https://api.football-data.org/v2/teams?areas=2077').
         then(function (response) {
@@ -91,18 +105,31 @@ app.controller("TimesController", function ($scope, $http, $routeParams) {
         });
 });
 
-app.controller("CadastroController", function ($scope, $http, $routeParams) {
+app.controller("CadastroController", function ($scope, $http, $routeParams, $location) {
     $scope.jogadores = [];
+    $scope.time = {};
     $scope.incluirJogador = function (jogador) {
         var jog = {}
         jog.posicao = jogador.posicao;
         jog.nome = jogador.nome;
         jog.dataNascimento = jogador.dataNascimento;
         $scope.jogadores.push(jog);
+        $scope.jogador = {};
     }
 
     $scope.salvarTime = function () {
-        //Implementar salvar;
+        var strTimes = window.localStorage.getItem("times")
+        
+        if (strTimes == null) {
+            $scope.times = []
+        } else {
+            $scope.times = JSON.parse(strTimes);
+        }
+        $scope.time.jogadores = $scope.jogadores;
+        $scope.times.push($scope.time);
+        window.localStorage.setItem("times", JSON.stringify($scope.times));
+        alert('Cadastro realizado com sucesso!');
+        $location.path("/MeusTimes");
     }
 });
 
