@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="t in times">
+                        <tr ng-repeat="t in times | t.uid == usuario.uid">
                             <td>{{t.name}}</td>
                             <td><a href="{{t.website}}" target="_blank">{{t.website}}</a></td>
                             <td>
